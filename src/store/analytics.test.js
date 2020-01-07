@@ -1,16 +1,16 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
 import analyticsStore from './analytics';
 
-const state = analyticsStore.initialState
+it('Should emit temperature with data 28', () => {
+    analyticsStore.setTemperature(28)
+    expect(analyticsStore.getCurrentValues().temperatureData.data).toBe(28);
+});
 
-function setState(newState) {
-  state = newState
-}
+it('Should emit air pressure with data 9.8', () => {
+    analyticsStore.setAirPressure(9.8)
+    expect(analyticsStore.getCurrentValues().airPressureData.data).toBe(9.8);
+});
 
-it('Should add temp', () => {
-    analyticsStore.subscribe(setState)
-    analyticsStore.setTemperature(2)
-    console.log(analyticsStore.getCurrentValues)
-    expect(state.temperatureData.data).toBe(2);
+it('Should emit huminity with data 2', () => {
+    analyticsStore.setHumidity(2)
+    expect(analyticsStore.getCurrentValues().humidityData.data).toBe(2);
 });

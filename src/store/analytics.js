@@ -54,7 +54,9 @@ const analyticsStore = {
     };
     if(state.firstEmitDone) subject.next(state);
   },
-  getCurrentValues: state,
+  getCurrentValues: () => {
+    return state
+  },
   initialState
 };
 
